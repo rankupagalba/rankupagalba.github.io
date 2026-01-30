@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankų Pagalba — Renovacija be streso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2d3748;
+        }
+        
+        /* Problem/Solution */
+        .problem {
+            background: #f7fafc;
+        }
+        
+        .problem-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .problem-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #4a5568;
+        }
+        
+        .highlight {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-top: 30px;
+        }
+        
+        /* Steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .step p {
+            color: #718096;
+        }
+        
+        /* Services */
+        .services {
+            background: #f7fafc;
+        }
+        
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .service-item h3 {
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+        
+        /* Why Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            padding: 30px;
+        }
+        
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .feature p {
+            color: #718096;
+        }
+        
+        /* Pricing */
+        .pricing {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .pricing h2 {
+            color: white;
+        }
+        
+        .pricing-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .pricing-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .pricing-example {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .pricing-list {
+            text-align: left;
+            max-width: 500px;
+            margin: 30px auto;
+        }
+        
+        .pricing-list li {
+            margin-bottom: 10px;
+            list-style: none;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .pricing-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        /* Contact */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: #f7fafc;
+            border-radius: 15px;
+        }
+        
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #4a5568;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .steps-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Renovacija be streso —<br>viską sutvarkome už jus</h1>
+            <p>Nuo sąmatos iki baigto darbo. Jūs neturite ieškoti meistrų ir derėtis — mes tai darome už jus.</p>
+            <a href="#kontaktai" class="btn">Gauti nemokamą sąmatą</a>
+            <a href="#kaip-veikia" class="btn btn-outline">Kaip tai veikia?</a>
+        </div>
+    </section>
+
+    <!-- Problem/Solution -->
+    <section class="problem" id="problema">
+        <div class="container">
+            <div class="problem-content">
+                <h2>Ar pažįstate šį scenarijų?</h2>
+                <p>Norite pakeisti langus, sutvarkyti stogą arba pilnai renovuoti būstą. Pradedate ieškoti meistrų — skelbimuose dešimtys skirtingų kainų, niekas neaiškina kas už ką atsakingas.</p>
+                <p>Baigiate koordinuoti 5 skirtingus žmones, važinėti tikrinti darbų ir nervintis, ar viskas daroma teisingai.</p>
+                <div class="highlight">
+                    <h3>Mes siūlome alternatyvą</h3>
+                    <p>Jūs papasakojate, ko norite. Mes suskaičiuojame sąmatą, surandame patikrintus meistrus, prižiūrime darbus. Jūs gaunate rezultatą — be streso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps -->
+    <section id="kaip-veikia">
+        <div class="container">
+            <h2>Taip paprasta</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Papasakokite</h3>
+                    <p>Aptariame jūsų norus ir poreikius — atvykstu į objektą arba kalbamės nuotoliniu būdu.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Gaukite sąmatą</h3>
+                    <p>Paruošiu detalią sąmatą su darbų ir medžiagų kainomis. Jei nuspręsite dirbti su mumis — sąmata nemokama.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Gyvenkite savo gyvenimą</h3>
+                    <p>Meistrai dirba, aš prižiūriu procesą. Jūs gaunate sutvarkytą būstą ir visas garantijas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <h2>Kuo galime padėti?</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>🪟 Langų ir durų keitimas</h3>
+                </div>
+                <div class="service-item">
+                    <h3>🏠 Stogų remontas ir renovacija</h3>
+                </div>
+                <div class="service-item">
+                    <h3>🚧 Tvorų statyba ir remontas</h3>
+                </div>
+                <div class="service-item">
+                    <h3>🏗️ Butų ir namų renovacija</h3>
+                </div>
+                <div class="service-item">
+                    <h3>📋 Sąmatų skaičiavimas</h3>
+                </div>
+                <div class="service-item">
+                    <h3>📊 Pilnas projektų valdymas</h3>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; color: #718096;">Nerandate ko reikia? <a href="#kontaktai" style="color: #667eea;">Parašykite</a> — tikrai galime padėti arba rekomenduoti tinkamą specialistą.</p>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section>
+        <div class="container">
+            <h2>Kodėl rinktis mus?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Pažįstame meistrus asmeniškai</h3>
+                    <p>Dirbame tik su patikrintais žmonėmis, kuriuos pažįstame metų metus. Neatsiuntinėjame atsitiktinių žmonių iš skelbimų.</p>
+                </div>
+                <div class="feature">
+                    <h3>Vienas kontaktas</h3>
+                    <p>Jums nereikia derėtis su 5 skirtingais žmonėmis, aiškintis kas už ką atsakingas ir kurti 5 WhatsApp grupių. Viskas per mane.</p>
+                </div>
+                <div class="feature">
+                    <h3>Fiksuota kaina</h3>
+                    <p>Sutariame kainą iš anksto. Jokių "o čia dar reikia papildomai" staigmenų darbo metu.</p>
+                </div>
+                <div class="feature">
+                    <h3>Jūsų laikas</h3>
+                    <p>Nuvažiuoju patikrinti darbų, sprendžiu problemas su meistrais. Jūs gyvenate savo gyvenimą.</p>
+                </div>
+                <div class="feature">
+                    <h3>Garantijos</h3>
+                    <p>Perduodame visas meistrų suteikiamas garantijas. Vienas skambutis — ir tvarkome.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <div class="pricing-content">
+                <h2>Skaidri kainodara</h2>
+                <p>Mūsų koordinavimo mokestis — <strong>20%</strong> nuo darbų vertės.</p>
+                
+                <div class="pricing-example">
+                    <p style="font-size: 1.1rem; margin-bottom: 15px;">Pavyzdys:</p>
+                    <p>Meistrų darbai ir medžiagos: <strong>2000€</strong></p>
+                    <p>Mūsų koordinavimas: <strong>400€</strong></p>
+                    <p style="font-size: 1.3rem; margin-top: 15px;"><strong>Jums: 2400€</strong></p>
+                </div>
+                
+                <p style="margin-top: 30px;"><strong>Ką gaunate už šiuos 20%:</strong></p>
+                <ul class="pricing-list">
+                    <li>Patikrintų meistrų paiešką ir atranką</li>
+                    <li>Darbų kokybės kontrolę</li>
+                    <li>Visų problemų sprendimą</li>
+                    <li>Vieną kontaktinį asmenį vietoj 5 skirtingų</li>
+                    <li>Perduotas garantijas</li>
+                </ul>
+                
+                <p style="margin-top: 30px; font-size: 1.1rem;"><strong>Sąmata nemokama</strong> — jei nuspręsite dirbti su mumis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="kontaktai">
+        <div class="container">
+            <h2>Pradėkime nuo pokalbio</h2>
+            <p style="text-align: center; color: #718096; margin-bottom: 40px;">Papasakokite ką planuojate — susisieksiu per 24 valandas.</p>
+            
+            <div class="contact-form">
+                <form action="mailto:tavo@email.lt" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="vardas">Vardas</label>
+                        <input type="text" id="vardas" name="vardas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefonas">Telefonas</label>
+                        <input type="tel" id="telefonas" name="telefonas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">El. paštas</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="zinute">Ką planuojate daryti?</label>
+                        <textarea id="zinute" name="zinute" placeholder="Aprašykite trumpai, koks darbas reikalingas..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Siųsti užklausą</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <p><strong>Arba tiesiog susisiekite:</strong></p>
+                <p style="margin-top: 15px; font-size: 1.3rem;">
+                    📞 <a href="tel:+37062203567" style="color: #667eea;">+370 622 03567</a><br>
+                    ✉️ <a href="mailto:rankupagalba@gmail.com" style="color: #667eea;">rankupagalba@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Rankų Pagalba</strong> — renovacija be streso.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">© 2025 Rankų Pagalba</p>
+        </div>
+    </footer>
+</body>
+</html>
